@@ -15,9 +15,7 @@ import java.util.Set;
 public class NioServer {
 	int port;
 	ServerSocketChannel server;
-
 	Selector selector;
-
 	ByteBuffer receiveBuff = ByteBuffer.allocate(1024);
 	ByteBuffer sendBuff = ByteBuffer.allocate(1024);
 
@@ -37,9 +35,7 @@ public class NioServer {
 		 * Start a selector
 		 */
 		selector = Selector.open();
-
 		server.register(selector, SelectionKey.OP_ACCEPT);
-
 		System.out.println("NIO server start successful on port: " + port);
 
 		listener();
@@ -59,6 +55,7 @@ public class NioServer {
 			Set<SelectionKey> keys = selector.selectedKeys();
 			Iterator<SelectionKey> iterator = keys.iterator();
 			while (iterator.hasNext()) {
+				System.out.println(keys.size());
 				// process one by one
 				process(iterator.next());
 
@@ -84,15 +81,15 @@ public class NioServer {
 			}
 			client.register(selector, SelectionKey.OP_WRITE);
 		} else if (key.isWritable()) { // check if can write data
+			SocketChannel client = (SocketChannel) key.channel();
 			if (sessionMsg.containsKey(key)) {
-				SocketChannel client = (SocketChannel) key.channel();
 				sendBuff.clear();
 				sendBuff.put(new String(sessionMsg.get(key) + ", Done.").getBytes());
 				sendBuff.flip();
 				// sendBuff.flip();
 				client.write(sendBuff);
-				client.register(selector, SelectionKey.OP_READ);
 			}
+			client.register(selector, SelectionKey.OP_READ);
 		}
 	}
 
