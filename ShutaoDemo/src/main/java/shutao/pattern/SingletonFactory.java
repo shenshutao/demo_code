@@ -3,7 +3,7 @@ package shutao.pattern;
 /**
  * @author Shutao
  * 
- * In Spring, you can use scope = 'singleton' instead. 
+ *         In Spring, you can use scope = 'singleton' instead.
  */
 public class SingletonFactory {
 	private static SingletonClass instance = null;
@@ -12,9 +12,14 @@ public class SingletonFactory {
 		// Avoid instantiation.
 	}
 
-	public synchronized static SingletonClass getInstance() {
+	// Lazy init + thread safe.
+	public static SingletonClass getInstance() {
 		if (instance == null) {
-			instance = new SingletonClass();
+			synchronized (SingletonFactory.class) {
+				if (instance == null) {
+					instance = new SingletonClass();
+				}
+			}
 		}
 		return instance;
 	}
