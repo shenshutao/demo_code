@@ -1,4 +1,4 @@
-package shutao.pattern;
+package shutao.patterns;
 
 /**
  * @author Shutao
