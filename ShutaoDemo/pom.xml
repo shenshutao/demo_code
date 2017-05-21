@@ -45,5 +45,11 @@
 			<artifactId>camel-core</artifactId>
 			<version>2.19.0</version>
 		</dependency>
+		<!-- For Active MQ Sample -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>5.7.0</version>
+		</dependency>
 	</dependencies>
 </project>
