@@ -1,6 +1,6 @@
 <p>Spring boot with the web module</p>
 
-<p>Spring boot is "based on different requirement, summarize serveral modules with default configurations inside." With those default configurations, we can build a website or start a restful resource in serverl minutes, speed up java development. <p>
+<p>For my understanding, Spring boot is "based on different requirement, summarize serveral modules with default configurations inside." With those default configurations, we can build a website or start a restful resource in serverl minutes, speed up java development. <p>
 <br />
 Steps:
 <ul>
