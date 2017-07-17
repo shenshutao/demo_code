@@ -1,0 +1,57 @@
+spring:
+  # Database Configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/test1
+    username: root
+    password: root
+    driver-class-name: org.gjt.mm.mysql.Driver
+  redis:
+    # redis Default 0, we use 3 here to avoid conflicts
+    database: 3
+    # redis host
+    host: localhost
+    # redis port (default 6379)
+    port: 6379
+    # redis password (default empty)
+    password:
+    # redis timeout setting, million seconds
+    timeout: 0
+    # redis connection pool configuration
+    pool:
+      # Max active connection (default 8, negative number means unlimited )
+      max-active: 8
+      # Max idle connection (default 8, negative number means unlimited )
+      max-idle: 8
+      # Minimal idle connection (default 0, only positive number have meaning )
+      min-idle: 0
+      # Max waiting time to retrieve connection from connection pool (default -1, million seconds, negative number means unlimited )
+      max-wait: -1
+
+# Server configuration
+server:
+  port: 9999
+
+# mybatis configuration
+mybatis:
+  # Package name of the mapping model
+  type-aliases-package: edu.nus.model
+  # List mapper xml's locations
+  mapper-locations:
+    - mappers/ProductMapper.xml
+
+
+logging:
+  level:
+    edu.nus: DEBUG
+
+---
+spring:
+  profiles: test
+  # Database Configuration
+  datasource:
+    url: jdbc:h2:mem:test
+    username: root
+    password: 123456
+    driver-class-name: org.h2.Driver
+    schema: classpath:schema.sql
+    data: classpath:data.sql
