@@ -5,5 +5,5 @@
   <li>Java Simple JMS-ActiveMQ Samples</li>
   <li>Java Simple Camel Sample</li>
   <li>Spring Boot Sample</li>
-  <li>Java Mybatis + Redis</li>
+  <li>Java Mybatis with Redis</li>
 </ul>
