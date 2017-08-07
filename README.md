@@ -4,4 +4,5 @@
   <li>Java Regular Expression Sample</li>
   <li>Java Simple JMS-ActiveMQ Samples</li>
   <li>Java Simple Camel Sample</li>
+  <li>Java Mybatis + Redis</li>
 </ul>
