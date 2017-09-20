@@ -1,4 +1,7 @@
-HOW TO RUN
+<h1>JAVA Spring Boot + Batch + Scheduler + mail<h1>
+
+
+<h2>HOW TO RUN</h2>
 step 1:
 compile:   mvn clean package
 
@@ -23,7 +26,7 @@ step 4:
 Run: sh startBirthdayGreetingService.sh
 
 
-HOW TO TEST WITHOUT SEND EMAIL
+<h2>HOW TO TEST WITHOUT SEND EMAIL</h2>
 1. use IDE to run the Junit
 2. Run:  mvn test
 
