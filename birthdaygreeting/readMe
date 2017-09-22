@@ -1,3 +1,6 @@
+JAVA Spring Boot + Batch + Scheduler + mail
+
+
 HOW TO RUN
 step 1:
 compile:   mvn clean package
@@ -8,7 +11,7 @@ unzip /target/birthdayGreeting.zip
 step3:
 modify property:
 Scheduler setting:
-   # according to https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html
+according to https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html
    -schedule.cron.expression=0 0 9 * * *
 SMTP setting:
    -spring.mail.host=
