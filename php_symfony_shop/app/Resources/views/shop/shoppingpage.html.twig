@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Shopping Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+                $(".buy").click(
+                    function(event) {
+                        var quantity_node_selector = "#quantity_" + event.target.id
+                        $.ajax({
+                            url : '/buy',
+                            type : 'POST',
+                            data : {
+                                'item' : event.target.id,
+                                'quantity' : $(quantity_node_selector).val(),
+                            },
+                            dataType:'json',
+                            success : function(data) {              
+                                $("#cart").val(data.total_quantity);
+                            },
+                            error : function(request,error)
+                            {
+                                alert("Request: "+JSON.stringify(request));
+                            }
+                        });
+                    })
+                })      
+        </script>
+    </head>
+    <body>
+        <div>
+            <label>Items in Shopping Cart: </label>
+            <input type="text" id="cart" value="{{total_quantity}}" readonly>
+            <input type="button" value="Check Shopping Cart" onclick="window.location='/shoppingcart';">
+        </div>
+        Shopping Page
+        
+            {% for item in items %}
+            <div>
+                <p>{{ item.name }} : {{ item.price }}</p>
+                <input type="number" id="quantity_{{ item.id }}" value="{% if shopping_cart[item.id] is defined %}{{shopping_cart[item.id]}}{% else %}{{0}}{% endif %}" min="0" />
+                <input type="button" class="buy" id="{{ item.id }}" value="Add to Cart"/>
+            </div>
+            {% endfor %}
+    </body> 
+</html>

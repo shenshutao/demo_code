@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Result</title>
+</head>
+
+<body>
+	<h4>{{message}} </h4>
+
+	{% if shopping_cart is not empty %}
+	<div>
+		<h5> Here is your receipt: </h5>
+	    <ul>
+	        {% for key,value in shopping_cart %}
+	        <li>{{ items[key].name }} quantity: {{ value }}, price: {{ items[key].price * value }}</li>
+	        {% endfor %}
+	    </ul>
+	    <p> Total Price is {{total_price}} </p>
+	</div>
+	{% endif %}
+</body>
+
+</html
