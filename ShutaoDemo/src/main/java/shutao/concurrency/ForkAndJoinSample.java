@@ -29,22 +29,22 @@ public class ForkAndJoinSample {
 		/**
 		 * Normal 
 		 */
-		System.out.println("Normal start: " + LocalDateTime.now());
+		long start = System.currentTimeMillis();
 		int n = solution(tree, new HashSet<>(), 0);
 		System.out.println(n);
-		System.out.println("Normal end: " + LocalDateTime.now());
+		System.out.println("Normal use: " + (System.currentTimeMillis() - start) + " ms");
 
 		/**
 		 * Fork / Join, 
 		 * In this case, because the tree is small, use normal way is faster than Fork/Join. 
 		 * Mind the cost of time & memory.
 		 */
-		System.out.println("Forkjoin start:" + LocalDateTime.now());
+		long start2 = System.currentTimeMillis();
 		ForkJoinTask<Integer> task = new ComputeAction(tree, new HashSet<>(), 0);
 		ForkJoinPool pool = new ForkJoinPool();
 		Integer i = pool.invoke(task);
 		System.out.println(i);
-		System.out.println("Forkjoin end:" + LocalDateTime.now());
+		System.out.println("Forkjoin use: " + (System.currentTimeMillis() - start2) + " ms");
 	}
 
 	private static int solution(Tree t, Set<Integer> nodes, int deep) {
