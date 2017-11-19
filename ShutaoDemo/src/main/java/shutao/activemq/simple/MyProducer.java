@@ -11,7 +11,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 /**
  * Download ActiveMQ from http://activemq.apache.org/download.html
- * Install & start the service in your machine.
+ * Install and start the service in your machine.
  *  
  * @author Shutao
  * 

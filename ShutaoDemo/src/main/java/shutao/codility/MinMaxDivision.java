@@ -15,6 +15,9 @@ public class MinMaxDivision {
     }
 }
 
+/**
+ * Solution Class
+ */
 class Solution {
     public int solution(int K, int M, int[] A) {
         int min = 0;
@@ -44,9 +47,9 @@ class Solution {
 
     /**
      * Decide if it is a possible
-     * To divide into K groups, every group's sum < val.
+     * To divide into K groups, every group's sum less than limit.
      *
-     * @param limit every group's sum < limit
+     * @param limit every group's sum less than limit
      * @param K   divide to K groups
      * @param A   int array
      * @return possible or not
