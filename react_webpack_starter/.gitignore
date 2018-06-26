@@ -1,0 +1,14 @@
+# Elastic Beanstalk Files
+.vscode
+
+# dependencies
+/node_modules
+package-lock.json
+
+# production
+/dist
+
+# misc
+.DS_Store
+
+npm-debug.log*
