@@ -3,6 +3,8 @@
 ## At first, init project
 ```
 npm init
+npm i --save-dev webpack webpack-dev-server webpack-cli
+npm i --save-dev babel-core babel-loader babel-preset-env babel-preset-react html-webpack-plugin
 ```
 
 ## For developement, hot reloading
