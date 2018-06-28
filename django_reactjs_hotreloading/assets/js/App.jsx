@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
+import { hot } from 'react-hot-loader'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <h1> This is React App </h1>
+        <h1> This is React App !!!</h1>
       </div>
     );
   }
 }
 
-export default App;
+export default hot(module)(App)
